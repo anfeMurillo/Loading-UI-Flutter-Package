@@ -1,11 +1,17 @@
 name: loading_ui_flutter
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: "A collection of 35+ beautiful, customizable loading animations for Flutter, ported from loading-ui."
+version: 0.1.0-dev.1
+homepage: https://github.com/anfeh/loading-ui
+repository: https://github.com/anfeh/loading-ui
+topics:
+  - loading
+  - spinner
+  - animation
+  - ui
 
 environment:
   sdk: ^3.11.5
-  flutter: ">=1.17.0"
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
