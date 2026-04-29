@@ -2,7 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 /// A reusable [CustomPainter] for drawing circular arcs.
-/// 
+///
 /// Used by many ring-based loaders like 'ring', 'arc', 'dual-arc', etc.
 class ArcPainter extends CustomPainter {
   /// The color of the arc.
@@ -49,7 +49,7 @@ class ArcPainter extends CustomPainter {
     if (dashArray == null) {
       canvas.drawArc(rect, startAngle, sweepAngle, false, paint);
     } else {
-      // Basic dash implementation could go here if needed, 
+      // Basic dash implementation could go here if needed,
       // but for Phase 0 we'll keep it simple.
       canvas.drawArc(rect, startAngle, sweepAngle, false, paint);
     }

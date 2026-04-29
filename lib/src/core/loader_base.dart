@@ -1,18 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// A base wrapper for all loading indicators to ensure consistent
-/// accessibility and performance across the library.
-/// 
-/// Wraps the [child] with [Semantics] for screen readers and 
-/// [RepaintBoundary] to optimize animation performance.
 class LoaderWrapper extends StatelessWidget {
-  /// The animation or drawing to be displayed.
   final Widget child;
-
-  /// The accessibility label for the loader. Defaults to 'Loading'.
   final String? semanticsLabel;
-
-  /// The size of the loader. If provided, wraps the child in a [SizedBox.square].
   final double? size;
 
   const LoaderWrapper({
@@ -25,33 +15,49 @@ class LoaderWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget current = child;
-
     if (size != null) {
-      current = SizedBox.square(
-        dimension: size,
-        child: current,
-      );
+      current = SizedBox.square(dimension: size, child: current);
     }
-
     return Semantics(
+      container: true,
       label: semanticsLabel ?? 'Loading',
       liveRegion: true,
-      child: RepaintBoundary(
-        child: current,
-      ),
+      child: RepaintBoundary(child: current),
     );
   }
 }
 
-/// A helper mixin for loaders that require a staggered animation interval.
+bool reducedMotionOf(BuildContext context) =>
+    MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+
+mixin LoaderAnimationMixin<T extends StatefulWidget> on State<T> {
+  AnimationController get controller;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _syncMotion();
+  }
+
+  void syncMotion() => _syncMotion();
+
+  void _syncMotion() {
+    if (reducedMotionOf(context)) {
+      if (controller.isAnimating) controller.stop();
+      controller.value = 0.0;
+    } else if (!controller.isAnimating) {
+      controller.repeat();
+    }
+  }
+}
+
 mixin StaggeredAnimationMixin {
-  /// Calculates an [Interval] for a staggered animation.
-  Interval staggeredInterval(int index, int total, {Curve curve = Curves.linear}) {
+  Interval staggeredInterval(
+    int index,
+    int total, {
+    Curve curve = Curves.linear,
+  }) {
     final double start = index / total;
-    return Interval(
-      start,
-      1.0,
-      curve: curve,
-    );
+    return Interval(start, 1.0, curve: curve);
   }
 }
