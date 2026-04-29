@@ -1,8 +1,9 @@
-# loading_ui_flutter
+# loading_ui
+
+> **Note**: This is an **AI-created version** based on the original work of [loading-ui.com](https://loading-ui.com).
 
 A collection of **36 beautiful, customisable loading animations** for Flutter,
-ported from the [loading-ui](https://github.com/anfeh/loading-ui) React/Tailwind
-library.
+ported from the [loading-ui](https://github.com/anfeMurillo/Loading-UI-Flutter-Package) library.
 
 All widgets are:
 - **Accessible** — wrapped in `Semantics(liveRegion: true, label: 'Loading')`
@@ -10,24 +11,48 @@ All widgets are:
 - **Dispose-safe** — controllers are always cleaned up
 - **Zero dependencies** — only Flutter SDK, no third-party packages
 
+![Showcase](example_image.gif)
+
 ---
 
 ## Installation
 
 ```yaml
 dependencies:
-  loading_ui_flutter: ^0.1.0-dev.1
+  loading_ui: ^0.1.0-dev.1
 ```
 
 Then import:
 
 ```dart
-import 'package:loading_ui_flutter/loading_ui_flutter.dart';
+import 'package:loading_ui/loading_ui.dart';
 ```
 
 ---
 
-## Quick start
+## Usage
+
+### Simple implementation
+
+Just drop a loader widget into your widget tree. Most loaders require only a `size` and `color`.
+
+```dart
+import 'package:loading_ui/loading_ui.dart';
+
+class MyLoadingView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RingLoader(
+        size: 40.0,
+        color: Theme.of(context).primaryColor,
+      ),
+    );
+  }
+}
+```
+
+### Quick start examples
 
 ```dart
 // Spinner
@@ -187,7 +212,7 @@ flutter run
 ## Contributing
 
 Issues and pull requests are welcome on
-[GitHub](https://github.com/anfeh/loading-ui).
+[GitHub](https://github.com/anfeMurillo/Loading-UI-Flutter-Package).
 
 ---
 

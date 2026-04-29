@@ -1,8 +1,8 @@
-name: loading_ui_flutter
-description: "A collection of 35+ beautiful, customizable loading animations for Flutter, ported from loading-ui."
+name: loading_ui
+description: "A collection of 35+ beautiful, customizable loading animations for Flutter. This is an AI-created version based on the work of loading-ui.com."
 version: 0.1.0-dev.1
-homepage: https://github.com/anfeh/loading-ui
-repository: https://github.com/anfeh/loading-ui
+homepage: https://github.com/anfeMurillo/Loading-UI-Flutter-Package
+repository: https://github.com/anfeMurillo/Loading-UI-Flutter-Package.git
 topics:
   - loading
   - spinner

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loading_ui_flutter/loading_ui_flutter.dart';
+import 'package:loading_ui/loading_ui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const LoadingShowcaseApp());
 
@@ -11,7 +12,7 @@ class LoadingShowcaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'loading_ui_flutter showcase',
+      title: 'loading_ui showcase',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorSchemeSeed: const Color(0xFF6750A4),
@@ -348,9 +349,29 @@ class _ShowcasePageState extends State<ShowcasePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('loading_ui_flutter'),
+        title: const Column(
+          children: [
+            Text('loading_ui'),
+            Text(
+              'AI-created version from loading-ui.com',
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
+            ),
+          ],
+        ),
         centerTitle: true,
         backgroundColor: scheme.surfaceContainerHighest,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.code),
+            tooltip: 'View on GitHub',
+            onPressed: () => launchUrl(
+              Uri.parse(
+                'https://github.com/anfeMurillo/Loading-UI-Flutter-Package.git',
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+        ],
       ),
       body: Column(
         children: [
