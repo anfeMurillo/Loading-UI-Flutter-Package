@@ -55,7 +55,9 @@ class _ClockRingLoaderState extends State<ClockRingLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 2.0 * (widget.size / 24);
+    // Fixed 2px stroke matches CSS `border-2`; the original border width
+    // does not scale with element size.
+    final stroke = widget.strokeWidth ?? 2.0;
     final handWidth = widget.size * 0.0625;
     final handHeight = widget.size * 0.5;
     return LoaderWrapper(

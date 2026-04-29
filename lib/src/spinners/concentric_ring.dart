@@ -4,10 +4,9 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/painters/ring_arc_painter.dart';
 
-/// Two concentric rings rotating at different speeds.
+/// Two concentric rings: a faded outer ring and an inner 90° accent arc.
 ///
-/// The outer ring spins clockwise; the inner ring spins counter-clockwise,
-/// creating a layered, planetary-motion feel.
+/// Both rotate together as a single unit.
 /// Respects [MediaQueryData.disableAnimations].
 class ConcentricRingLoader extends StatefulWidget {
   final double size;
@@ -57,7 +56,10 @@ class _ConcentricRingLoaderState extends State<ConcentricRingLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 2.0 * (widget.size / 24);
+    // CSS uses a fixed `border-2` (2px) regardless of element size, which
+    // is what creates the visible gap between the inner and outer rings at
+    // larger sizes. Keep the default fixed; pass [strokeWidth] to override.
+    final stroke = widget.strokeWidth ?? 2.0;
     final faded = c.withValues(alpha: c.a * 0.25);
     final inner = widget.size * 0.83333;
     return LoaderWrapper(

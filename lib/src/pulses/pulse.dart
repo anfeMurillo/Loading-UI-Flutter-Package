@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 
-/// A pulsing ring that expands and fades out.
+/// A subtle ring pulse loader.
 ///
-/// Scales a bordered circle from 0 to [size] while simultaneously fading
-/// its opacity, creating a sonar-ping style pulse. Loops indefinitely.
+/// Scales a bordered circle between 0.95 and 1.05 while fading opacity
+/// between 0.8 and 0.4, creating a gentle breathing pulse.
 /// Respects [MediaQueryData.disableAnimations].
 class PulseLoader extends StatefulWidget {
   final double size;

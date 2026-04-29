@@ -74,20 +74,26 @@ class _TextShimmerLoaderState extends State<TextShimmerLoader>
           builder: (_, _) {
             // The shimmer center moves from +1.5 (off right) to -0.5 (off left).
             final center = 1.5 - _ctrl.value * 2.0;
-            // Spread: N characters × spread factor, normalised to ~0.2 of width.
-            const spreadFrac = 0.25;
             return ShaderMask(
               blendMode: BlendMode.srcIn,
-              shaderCallback: (bounds) => LinearGradient(
-                colors: [base, shimmer, base],
-                stops: [
-                  (center - spreadFrac).clamp(0.0, 1.0),
-                  center.clamp(0.0, 1.0),
-                  (center + spreadFrac).clamp(0.0, 1.0),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ).createShader(bounds),
+              shaderCallback: (bounds) {
+                // Mirror original CSS: --spread = text.length × spread (px).
+                // Band half-width as fraction of rendered text width.
+                final spreadPx = widget.text.length * widget.spread;
+                final spreadFrac = bounds.width <= 0
+                    ? 0.25
+                    : (spreadPx / bounds.width).clamp(0.02, 0.5);
+                return LinearGradient(
+                  colors: [base, shimmer, base],
+                  stops: [
+                    (center - spreadFrac).clamp(0.0, 1.0),
+                    center.clamp(0.0, 1.0),
+                    (center + spreadFrac).clamp(0.0, 1.0),
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ).createShader(bounds);
+              },
               child: Text(
                 widget.text,
                 style: textStyle.copyWith(color: Colors.white),

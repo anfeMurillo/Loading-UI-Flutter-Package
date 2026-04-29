@@ -55,15 +55,21 @@ class _TripleDotLoaderState extends State<TripleDotLoader>
     super.dispose();
   }
 
-  Widget _dot(Color c) => Container(
-    width: widget.size,
-    height: widget.size,
+  Widget _dot(Color c, double dotSize) => Container(
+    width: dotSize,
+    height: dotSize,
     decoration: BoxDecoration(shape: BoxShape.circle, color: c),
   );
 
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
+    // [size] is the overall bounding row width. Original CSS lays out three
+    // dots whose centres are at offsets [-1.5W, 0, +1.5W] from row centre,
+    // with each dot of width W → row span = 4W. So dotSize = size / 4.
+    final dotSize = widget.size / 4;
+    final centerY = widget.size / 2 - dotSize / 2;
+    final centerX = widget.size / 2;
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
       size: widget.size,
@@ -72,9 +78,21 @@ class _TripleDotLoaderState extends State<TripleDotLoader>
         child: Stack(
           clipBehavior: Clip.none,
           children: [
-            Positioned(left: -widget.size * 1.5, top: 0, child: _dot(c)),
-            Positioned(left: 0, top: 0, child: _dot(c)),
-            Positioned(left: widget.size * 1.5, top: 0, child: _dot(c)),
+            Positioned(
+              left: centerX - 1.5 * dotSize - dotSize / 2,
+              top: centerY,
+              child: _dot(c, dotSize),
+            ),
+            Positioned(
+              left: centerX - dotSize / 2,
+              top: centerY,
+              child: _dot(c, dotSize),
+            ),
+            Positioned(
+              left: centerX + 1.5 * dotSize - dotSize / 2,
+              top: centerY,
+              child: _dot(c, dotSize),
+            ),
           ],
         ),
       ),

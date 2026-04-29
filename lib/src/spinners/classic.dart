@@ -58,7 +58,7 @@ class _ClassicLoaderState extends State<ClassicLoader>
     final s = widget.size;
     final barW = s * 0.24;
     final barH = s * 0.08;
-    final radius = s * 0.36;
+    final radius = s * 0.35;
     const count = 12;
 
     return LoaderWrapper(
@@ -70,7 +70,7 @@ class _ClassicLoaderState extends State<ClassicLoader>
           children: List.generate(count, (i) {
             final t = phaseOf(_ctrl.value, i / count);
             final opacity = lerpStops(t, const [0.0, 1.0], const [1.0, 0.15]);
-            final angle = i * (math.pi / 6) - math.pi / 2;
+            final angle = i * (math.pi / 6);
             final dx = math.cos(angle) * radius;
             final dy = math.sin(angle) * radius;
             return Positioned(

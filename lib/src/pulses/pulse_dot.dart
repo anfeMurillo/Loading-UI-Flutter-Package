@@ -63,17 +63,24 @@ class _PulseDotLoaderState extends State<PulseDotLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
+    // [size] is the overall bounding box. The dot scales 1.0 → 1.5 → 1.0,
+    // so its rest size is size / 1.5 to ensure the peak fills [size].
+    final restSize = widget.size / 1.5;
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
       size: widget.size,
-      child: AnimatedBuilder(
-        animation: _ctrl,
-        builder: (_, _) => Opacity(
-          opacity: _opacity.value,
-          child: Transform.scale(
-            scale: _scale.value,
-            child: Container(
-              decoration: BoxDecoration(shape: BoxShape.circle, color: c),
+      child: Center(
+        child: AnimatedBuilder(
+          animation: _ctrl,
+          builder: (_, _) => Opacity(
+            opacity: _opacity.value,
+            child: Transform.scale(
+              scale: _scale.value,
+              child: Container(
+                width: restSize,
+                height: restSize,
+                decoration: BoxDecoration(shape: BoxShape.circle, color: c),
+              ),
             ),
           ),
         ),

@@ -56,7 +56,9 @@ class _QuarterRingLoaderState extends State<QuarterRingLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 3.0 * (widget.size / 24);
+    // Fixed 3px stroke matches CSS `border-[3px]`; the original border width
+    // does not scale with element size.
+    final stroke = widget.strokeWidth ?? 3.0;
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
       size: widget.size,

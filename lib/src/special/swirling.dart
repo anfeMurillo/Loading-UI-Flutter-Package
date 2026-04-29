@@ -110,11 +110,18 @@ class _SwirlingPainter extends CustomPainter {
     final strokeW = size.width * 0.0625; // 50/800
     final circumference = 2 * math.pi * r;
 
-    // dasharray: 1→400→800 (easeInOut, alternate via reverse:true)
+    // dasharray: 1→400→800 and dashoffset: 0→-200→-800 (easeInOut, alternate)
     final eased = Curves.easeInOut.transform(dashT);
     final dashLen = 1.0 + 799.0 * eased;
-    // Normalize to this circle's circumference (800-unit viewBox scaled)
+    // dashoffset: keyframes at 0%, 50%, 100% → 0, -200, -800 (in 800-unit space)
+    final double dashOffset;
+    if (eased <= 0.5) {
+      dashOffset = -200.0 * (eased / 0.5);
+    } else {
+      dashOffset = -200.0 + (-600.0) * ((eased - 0.5) / 0.5);
+    }
     final scaledDashLen = (dashLen / 800) * circumference;
+    final scaledOffset = (dashOffset / 800) * circumference;
 
     final paint = Paint()
       ..color = color
@@ -128,9 +135,13 @@ class _SwirlingPainter extends CustomPainter {
     canvas.translate(-cx, -cy);
 
     final rect = Rect.fromCircle(center: Offset(cx, cy), radius: r);
+    // SVG's dashoffset shifts the dash pattern along the path; negative offset
+    // shifts the start backwards. drawArc starts at right (angle 0); a negative
+    // offset advances the visible start counter-clockwise around the circle.
+    final startAngle = -math.pi / 2 - (scaledOffset / circumference) * 2 * math.pi;
     canvas.drawArc(
       rect,
-      -math.pi / 2,
+      startAngle,
       (scaledDashLen / circumference) * 2 * math.pi,
       false,
       paint,

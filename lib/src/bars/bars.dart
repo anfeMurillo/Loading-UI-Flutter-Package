@@ -59,7 +59,7 @@ class _BarsLoaderState extends State<BarsLoader>
     final c = resolveColor(context, widget.color);
     final delayFraction =
         widget.delay.inMicroseconds / widget.duration.inMicroseconds;
-    final gap = widget.size * 0.05 / (widget.bars + 1);
+    final gap = widget.size * 0.05;
     final barWidth = (widget.size - gap * (widget.bars - 1)) / widget.bars;
 
     return LoaderWrapper(

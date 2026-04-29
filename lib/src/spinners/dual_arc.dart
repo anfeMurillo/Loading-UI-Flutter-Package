@@ -4,10 +4,10 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/painters/ring_arc_painter.dart';
 
-/// Two counter-rotating arcs spinner.
+/// Two opposing 90° arcs (top and bottom) rotating together.
 ///
-/// Renders two partial-ring arcs spinning in opposite directions, creating a
-/// hypnotic figure-eight–like effect. Respects [MediaQueryData.disableAnimations].
+/// Renders top and bottom arcs of a ring; both rotate as a single unit.
+/// Respects [MediaQueryData.disableAnimations].
 class DualArcLoader extends StatefulWidget {
   final double size;
   final Color? color;
@@ -56,7 +56,9 @@ class _DualArcLoaderState extends State<DualArcLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 5.0 * (widget.size / 24);
+    // Fixed 5px stroke matches CSS `border-[5px]`; the original border width
+    // does not scale with element size.
+    final stroke = widget.strokeWidth ?? 5.0;
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
       size: widget.size,

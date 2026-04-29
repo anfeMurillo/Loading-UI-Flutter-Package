@@ -4,10 +4,10 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/painters/ring_arc_painter.dart';
 
-/// An orbiting dot around a stationary ring.
+/// A faded inner ring with a larger outer 90° accent arc.
 ///
-/// A solid dot travels along the perimeter of a ring, simulating an
-/// orbiting particle. Respects [MediaQueryData.disableAnimations].
+/// Both rings rotate together as a single unit.
+/// Respects [MediaQueryData.disableAnimations].
 class OrbitRingLoader extends StatefulWidget {
   final double size;
   final Color? color;
@@ -56,7 +56,9 @@ class _OrbitRingLoaderState extends State<OrbitRingLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 2.0 * (widget.size / 24);
+    // Fixed 2px stroke matches CSS `border-2`; preserves the visible gap
+    // between the inner faded ring and the outer accent ring at larger sizes.
+    final stroke = widget.strokeWidth ?? 2.0;
     final faded = c.withValues(alpha: c.a * 0.25);
     final outer = widget.size * 1.16667;
     return LoaderWrapper(

@@ -4,10 +4,10 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/painters/ring_arc_painter.dart';
 
-/// A single growing-arc spinner.
+/// A faded ring with a single 90° accent arc that rotates.
 ///
-/// Draws one arc whose sweep angle oscillates as it rotates, creating a
-/// winding/unwinding effect. Respects [MediaQueryData.disableAnimations].
+/// Draws a full ring at 10% opacity with a top 90° arc at full opacity,
+/// rotating continuously. Respects [MediaQueryData.disableAnimations].
 class ArcLoader extends StatefulWidget {
   final double size;
   final Color? color;
@@ -56,7 +56,9 @@ class _ArcLoaderState extends State<ArcLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 5.0 * (widget.size / 24);
+    // Fixed 5px stroke matches CSS `border-[5px]`; the original border width
+    // does not scale with element size.
+    final stroke = widget.strokeWidth ?? 5.0;
     final faded = c.withValues(alpha: c.a * 0.1);
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,

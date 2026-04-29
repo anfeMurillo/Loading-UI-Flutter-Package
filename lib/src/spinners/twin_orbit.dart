@@ -4,10 +4,10 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/stagger.dart';
 
-/// Two dots orbiting a common center in opposite directions.
+/// Two dots orbiting a common center, 180° out of phase.
 ///
-/// Each dot traces a circular path; the second runs 180° phase-shifted so
-/// they cross at the midpoints, creating a figure-eight orbit illusion.
+/// Both dots orbit in the same direction; the second is delayed by half
+/// the duration so they appear on opposite sides of the center.
 /// Respects [MediaQueryData.disableAnimations].
 class TwinOrbitLoader extends StatefulWidget {
   final double size;
@@ -17,7 +17,7 @@ class TwinOrbitLoader extends StatefulWidget {
 
   const TwinOrbitLoader({
     super.key,
-    this.size = 12.0,
+    this.size = 48.0,
     this.color,
     this.duration = const Duration(milliseconds: 1000),
     this.semanticsLabel,
@@ -52,42 +52,57 @@ class _TwinOrbitLoaderState extends State<TwinOrbitLoader>
     super.dispose();
   }
 
-  Widget _dot(Color c) => Container(
-    width: widget.size,
-    height: widget.size,
+  Widget _dot(Color c, double dotSize) => Container(
+    width: dotSize,
+    height: dotSize,
     decoration: BoxDecoration(shape: BoxShape.circle, color: c),
   );
 
-  Offset _orbitOffset(double t) {
+  Offset _orbitOffset(double t, double r) {
     final eased = Curves.easeInOut.transform(t);
     final angle = eased * 2 * math.pi;
-    final r = widget.size * 1.55;
     return Offset(math.cos(angle) * r, math.sin(angle) * r);
   }
 
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
+    // [size] is the overall bounding box. Original CSS sets dot = container,
+    // orbit radius = 1.55 × dot, giving bounding = 2 × (1.55 + 0.5) × dot
+    // = 4.1 × dot. So dotSize = size / 4.1.
+    final dotSize = widget.size / 4.1;
+    final orbitR = dotSize * 1.55;
+    final centerLeft = widget.size / 2 - dotSize / 2;
+    final centerTop = widget.size / 2 - dotSize / 2;
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
+      size: widget.size,
       child: AnimatedBuilder(
         animation: _ctrl,
         builder: (_, _) {
           final t1 = _ctrl.value;
           final t2 = phaseOf(_ctrl.value, 0.5);
-          final o1 = _orbitOffset(t1);
-          final o2 = _orbitOffset(t2);
-          return SizedBox(
-            width: widget.size,
-            height: widget.size,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                _dot(c),
-                Positioned(left: o1.dx, top: o1.dy, child: _dot(c)),
-                Positioned(left: o2.dx, top: o2.dy, child: _dot(c)),
-              ],
-            ),
+          final o1 = _orbitOffset(t1, orbitR);
+          final o2 = _orbitOffset(t2, orbitR);
+          return Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Positioned(
+                left: centerLeft,
+                top: centerTop,
+                child: _dot(c, dotSize),
+              ),
+              Positioned(
+                left: centerLeft + o1.dx,
+                top: centerTop + o1.dy,
+                child: _dot(c, dotSize),
+              ),
+              Positioned(
+                left: centerLeft + o2.dx,
+                top: centerTop + o2.dy,
+                child: _dot(c, dotSize),
+              ),
+            ],
           );
         },
       ),

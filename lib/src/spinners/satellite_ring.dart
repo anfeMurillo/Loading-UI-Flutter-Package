@@ -1,11 +1,11 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 
-/// A ring with a small satellite dot orbiting it.
+/// A faded ring with a small satellite dot attached at its edge.
 ///
-/// Combines a spinning ring stroke with a smaller dot that orbits at a
-/// slightly different speed, creating a satellite effect.
+/// The ring and dot rotate together as a single unit.
 /// Respects [MediaQueryData.disableAnimations].
 class SatelliteRingLoader extends StatefulWidget {
   final double size;
@@ -55,8 +55,21 @@ class _SatelliteRingLoaderState extends State<SatelliteRingLoader>
   @override
   Widget build(BuildContext context) {
     final c = resolveColor(context, widget.color);
-    final stroke = widget.strokeWidth ?? 2.0 * (widget.size / 24);
+    // Fixed 2px stroke matches CSS `border-2` and keeps the gap between
+    // the ring stroke and the satellite dot stable at any size.
+    final stroke = widget.strokeWidth ?? 2.0;
     final dot = widget.size * 0.33333;
+    // Place the dot centre exactly on the ring stroke. Match the original
+    // CSS angle (top:0, left:0 + translate(-50%, 50%) → upper-left), but
+    // reproject onto the stroke-centre radius so the ring line passes
+    // through the dot's centre, not just outside it.
+    final ringR = (widget.size - stroke) / 2;
+    final cx0 = widget.size / 2;
+    final cy0 = widget.size / 2;
+    // Original CSS positions dot centre at (0, size/3); take that direction.
+    final angle = math.atan2(widget.size / 3 - cy0, 0 - cx0);
+    final dotCx = cx0 + ringR * math.cos(angle);
+    final dotCy = cy0 + ringR * math.sin(angle);
     return LoaderWrapper(
       semanticsLabel: widget.semanticsLabel,
       size: widget.size,
@@ -77,8 +90,8 @@ class _SatelliteRingLoaderState extends State<SatelliteRingLoader>
               ),
             ),
             Positioned(
-              left: -dot / 2,
-              top: dot / 2,
+              left: dotCx - dot / 2,
+              top: dotCy - dot / 2,
               width: dot,
               height: dot,
               child: Container(

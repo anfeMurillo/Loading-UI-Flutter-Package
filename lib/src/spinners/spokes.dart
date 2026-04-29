@@ -5,9 +5,8 @@ import '../core/loader_base.dart';
 
 /// A radial spokes (wheel) spinner.
 ///
-/// Draws evenly-spaced line segments that fade in opacity with a staggered
-/// delay, mimicking a classic activity indicator.
-/// Respects [MediaQueryData.disableAnimations].
+/// Draws 8 evenly-spaced line segments at full opacity; the whole figure
+/// rotates continuously. Respects [MediaQueryData.disableAnimations].
 class SpokesLoader extends StatefulWidget {
   final double size;
   final Color? color;

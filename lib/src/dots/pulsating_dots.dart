@@ -60,7 +60,7 @@ class _PulsatingDotsLoaderState extends State<PulsatingDotsLoader>
     final c = resolveColor(context, widget.color);
     final delayFraction =
         widget.delay.inMicroseconds / widget.duration.inMicroseconds;
-    final gap = widget.size * 0.16 / (widget.dots + 1);
+    final gap = widget.size * 0.16;
     final dotSize = (widget.size - gap * (widget.dots - 1)) / widget.dots;
 
     return LoaderWrapper(

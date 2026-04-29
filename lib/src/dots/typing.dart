@@ -5,8 +5,8 @@ import '../core/stagger.dart';
 
 /// A three-dot typing indicator (chat bubble style).
 ///
-/// Mimics the "someone is typing" indicator used in messaging apps — three
-/// dots fade and scale with a staggered phase offset.
+/// Mimics the "someone is typing" indicator used in messaging apps — each
+/// dot lifts vertically (translateY) and fades with a staggered phase offset.
 /// Respects [MediaQueryData.disableAnimations].
 class TypingLoader extends StatefulWidget {
   final double size;
@@ -60,7 +60,7 @@ class _TypingLoaderState extends State<TypingLoader>
     final c = resolveColor(context, widget.color);
     final delayFraction =
         widget.delay.inMicroseconds / widget.duration.inMicroseconds;
-    final gap = widget.size * 0.12 / (widget.dots + 1);
+    final gap = widget.size * 0.12;
     final dotSize = (widget.size - gap * (widget.dots - 1)) / widget.dots;
     final maxLift = dotSize * 0.5;
 

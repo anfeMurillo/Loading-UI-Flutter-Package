@@ -270,7 +270,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     name: 'SkeletonLoader',
     category: 'Special',
     build: (_) =>
-        SkeletonLoader(width: c.size * 3, height: c.size * 0.6, color: c.color),
+        SkeletonLoader(width: c.size, height: c.size, color: c.color),
   ),
   (
     name: 'TerminalLoader',

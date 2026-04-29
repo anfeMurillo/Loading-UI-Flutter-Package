@@ -3,11 +3,10 @@ import '../core/color_resolver.dart';
 import '../core/loader_base.dart';
 import '../core/stagger.dart';
 
-/// Dots that bounce vertically in a staggered wave.
+/// Dots that scale and fade in a staggered wave.
 ///
-/// Each dot translates upward then returns with a sinusoidal-like eased
-/// motion, phase-shifted relative to its neighbours. The result is a
-/// cascading bounce wave. Respects [MediaQueryData.disableAnimations].
+/// Each dot scales between 0.8 and 1.2 with opacity 0.5↔1.0, phase-shifted
+/// by [delay] per index. Respects [MediaQueryData.disableAnimations].
 class BouncingDotsLoader extends StatefulWidget {
   final double size;
   final int dots;
@@ -60,7 +59,7 @@ class _BouncingDotsLoaderState extends State<BouncingDotsLoader>
     final c = resolveColor(context, widget.color);
     final delayFraction =
         widget.delay.inMicroseconds / widget.duration.inMicroseconds;
-    final gap = widget.size * 0.12 / (widget.dots + 1);
+    final gap = widget.size * 0.12;
     final dotSize = (widget.size - gap * (widget.dots - 1)) / widget.dots;
 
     return LoaderWrapper(
