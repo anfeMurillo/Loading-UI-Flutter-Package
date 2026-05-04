@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:loading_ui/loading_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,6 +15,7 @@ class LoadingShowcaseApp extends StatelessWidget {
     return MaterialApp(
       title: 'loading_ui showcase',
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
         colorSchemeSeed: const Color(0xFF6750A4),
         useMaterial3: true,
@@ -305,6 +307,652 @@ List<_LoderEntry> _catalogue(_Controls c) => [
       duration: c.scale(const Duration(milliseconds: 3000)),
     ),
   ),
+  // Matrix — Dot Matrix loaders
+  (
+    name: 'NeonDrift',
+    category: 'Matrix',
+    build: (_) => NeonDriftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PulseLadder',
+    category: 'Matrix',
+    build: (_) => PulseLadderLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CoreSpiral',
+    category: 'Matrix',
+    build: (_) => CoreSpiralLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PrismSweep',
+    category: 'Matrix',
+    build: (_) => PrismSweepLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'FluxColumns',
+    category: 'Matrix',
+    build: (_) => FluxColumnsLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CrtGlide',
+    category: 'Matrix',
+    build: (_) => CrtGlideLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'EchoRing',
+    category: 'Matrix',
+    build: (_) => EchoRingLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'OriginWave',
+    category: 'Matrix',
+    build: (_) => OriginWaveLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CoreRotor',
+    category: 'Matrix',
+    build: (_) => CoreRotorLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'SoundBars',
+    category: 'Matrix',
+    build: (_) => SoundBarsLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CoreSpokes',
+    category: 'Matrix',
+    build: (_) => CoreSpokesLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'AltitudeWave',
+    category: 'Matrix',
+    build: (_) => AltitudeWaveLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CornerBounce',
+    category: 'Matrix',
+    build: (_) => CornerBounceLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'RowSweep',
+    category: 'Matrix',
+    build: (_) => RowSweepLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ColumnRake',
+    category: 'Matrix',
+    build: (_) => ColumnRakeLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Phase 2: Square ───────────────────────────────────────────────────────────
+  (
+    name: 'TwinOrbit',
+    category: 'Matrix',
+    build: (_) => TwinOrbitMatrixLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'StrobeStack',
+    category: 'Matrix',
+    build: (_) => StrobeStackLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'GlyphPulse',
+    category: 'Matrix',
+    build: (_) => GlyphPulseLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PrismBloom',
+    category: 'Matrix',
+    build: (_) => PrismBloomLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'HelixGlow',
+    category: 'Matrix',
+    build: (_) => HelixGlowLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'HelixCore',
+    category: 'Matrix',
+    build: (_) => HelixCoreLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'HalfHelix',
+    category: 'Matrix',
+    build: (_) => HalfHelixLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'InfinityRun',
+    category: 'Matrix',
+    build: (_) => InfinityRunLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'MobiusRun',
+    category: 'Matrix',
+    build: (_) => MobiusRunLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'SnakeWave',
+    category: 'Matrix',
+    build: (_) => SnakeWaveLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ColWave',
+    category: 'Matrix',
+    build: (_) => ColWaveLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ConcentricRing',
+    category: 'Matrix',
+    build: (_) => ConcentricRingMatrixLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Phase 2: Circular ───────────────────────────────────────────────────────
+  (
+    name: 'HaloDrift',
+    category: 'Matrix',
+    build: (_) => HaloDriftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'TriOrbit',
+    category: 'Matrix',
+    build: (_) => TriOrbitLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PlasmaVeil',
+    category: 'Matrix',
+    build: (_) => PlasmaVeilLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'RadarArc',
+    category: 'Matrix',
+    build: (_) => RadarArcLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'NovaWheel',
+    category: 'Matrix',
+    build: (_) => NovaWheelLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PhaseOrb',
+    category: 'Matrix',
+    build: (_) => PhaseOrbLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'GateShift',
+    category: 'Matrix',
+    build: (_) => GateShiftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'HeartPulse',
+    category: 'Matrix',
+    build: (_) => HeartPulseLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'StarCompass',
+    category: 'Matrix',
+    build: (_) => StarCompassLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'BinaryBloom',
+    category: 'Matrix',
+    build: (_) => BinaryBloomLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Phase 2: Triangle ──────────────────────────────────────────────────────
+  (
+    name: 'VertexChase',
+    category: 'Matrix',
+    build: (_) => VertexChaseLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'BrailleBeat',
+    category: 'Matrix',
+    build: (_) => BrailleBeatLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ObliqueWeave',
+    category: 'Matrix',
+    build: (_) => ObliqueWeaveLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Fase 3 ──
+  (
+    name: 'BlockDrop',
+    category: 'Matrix',
+    build: (_) => BlockDropLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'LunarBreathe',
+    category: 'Matrix',
+    build: (_) => LunarBreatheLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ArcBeacon',
+    category: 'Matrix',
+    build: (_) => ArcBeaconLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'TwinHelix',
+    category: 'Matrix',
+    build: (_) => TwinHelixLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'RungShift',
+    category: 'Matrix',
+    build: (_) => RungShiftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'GlyphCluster',
+    category: 'Matrix',
+    build: (_) => GlyphClusterLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'RailScan',
+    category: 'Matrix',
+    build: (_) => RailScanLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CheckerShift',
+    category: 'Matrix',
+    build: (_) => CheckerShiftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PulsePair',
+    category: 'Matrix',
+    build: (_) => PulsePairLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'OrbitCell',
+    category: 'Matrix',
+    build: (_) => OrbitCellLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'GlyphCycle',
+    category: 'Matrix',
+    build: (_) => GlyphCycleLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'WingMetronome',
+    category: 'Matrix',
+    build: (_) => WingMetronomeLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'CoronaTier',
+    category: 'Matrix',
+    build: (_) => CoronaTierLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'ShelfDescent',
+    category: 'Matrix',
+    build: (_) => ShelfDescentLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'SkewDrift',
+    category: 'Matrix',
+    build: (_) => SkewDriftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Fase 4 ──
+  (
+    name: 'SerpentZip',
+    category: 'Matrix',
+    build: (_) => SerpentZipLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PillarSweep',
+    category: 'Matrix',
+    build: (_) => PillarSweepLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'TripodHandoff',
+    category: 'Matrix',
+    build: (_) => TripodHandoffLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'Updraft',
+    category: 'Matrix',
+    build: (_) => UpdraftLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'InfinityTrace',
+    category: 'Matrix',
+    build: (_) => InfinityTraceLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'HollowShell',
+    category: 'Matrix',
+    build: (_) => HollowShellLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'PivotRay',
+    category: 'Matrix',
+    build: (_) => PivotRayLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  (
+    name: 'TwinPerimeter',
+    category: 'Matrix',
+    build: (_) => TwinPerimeterLoader(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+      animated: true,
+    ),
+  ),
+  // ── Fase 5 (Icon) ──
+  (
+    name: 'DotMatrixIcon',
+    category: 'Matrix',
+    build: (_) => DotMatrixIcon(
+      size: c.size,
+      color: c.color,
+      speed: c.durationScale,
+    ),
+  ),
 ];
 
 // ─── Main page ────────────────────────────────────────────────────────────────
@@ -319,7 +967,7 @@ class ShowcasePage extends StatefulWidget {
 class _ShowcasePageState extends State<ShowcasePage> {
   double _size = 48;
   double _durationScale = 1.0;
-  int _colorIndex = 0;
+  int _colorIndex = 7;
   String? _categoryFilter;
 
   _Controls get _controls => _Controls(
@@ -336,6 +984,7 @@ class _ShowcasePageState extends State<ShowcasePage> {
     'Bars',
     'Text',
     'Special',
+    'Matrix',
   ];
 
   @override
@@ -457,111 +1106,179 @@ class _ControlsPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
-    return Container(
-      color: scheme.surfaceContainerHighest.withValues(alpha: 0.5),
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 4),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Size slider
-          Row(
-            children: [
-              const SizedBox(
-                width: 72,
-                child: Text(
-                  'Size',
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
+    return ClipRRect(
+      borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+        child: Container(
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHighest.withValues(alpha: 0.15),
+            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
+            border: Border(
+              bottom: BorderSide(
+                color: scheme.onSurface.withValues(alpha: 0.12),
+                width: 1,
               ),
-              Expanded(
-                child: Slider(
-                  value: size,
-                  min: 16,
-                  max: 96,
-                  divisions: 20,
-                  label: '${size.round()} px',
-                  onChanged: onSizeChanged,
-                ),
-              ),
-              SizedBox(
-                width: 40,
-                child: Text(
-                  '${size.round()}px',
-                  textAlign: TextAlign.end,
-                  style: const TextStyle(fontSize: 12),
-                ),
-              ),
-            ],
+            ),
           ),
-          // Duration slider
-          Row(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 10),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(
-                width: 72,
-                child: Text(
-                  'Speed',
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
-              ),
-              Expanded(
-                child: Slider(
-                  value: durationScale,
-                  min: 0.25,
-                  max: 4.0,
-                  divisions: 15,
-                  label: '${durationScale.toStringAsFixed(2)}×',
-                  onChanged: onDurationChanged,
-                ),
-              ),
-              SizedBox(
-                width: 40,
-                child: Text(
-                  '${durationScale.toStringAsFixed(2)}×',
-                  textAlign: TextAlign.end,
-                  style: const TextStyle(fontSize: 12),
-                ),
-              ),
-            ],
-          ),
-          // Color picker
-          Row(
-            children: [
-              const SizedBox(
-                width: 72,
-                child: Text(
-                  'Color',
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                ),
-              ),
-              ..._Controls.colors.asMap().entries.map((e) {
-                final selected = e.key == colorIndex;
-                return GestureDetector(
-                  onTap: () => onColorChanged(e.key),
-                  child: Container(
-                    margin: const EdgeInsets.only(right: 6, bottom: 6),
-                    width: 26,
-                    height: 26,
-                    decoration: BoxDecoration(
-                      color: e.value,
-                      shape: BoxShape.circle,
-                      border: selected
-                          ? Border.all(color: scheme.primary, width: 2.5)
-                          : Border.all(color: scheme.outlineVariant, width: 1),
-                      boxShadow: selected
-                          ? [
-                              BoxShadow(
-                                color: e.value.withValues(alpha: 0.5),
-                                blurRadius: 6,
-                              ),
-                            ]
-                          : null,
+              // Size slider
+              Row(
+                children: [
+                  SizedBox(
+                    width: 72,
+                    child: Text(
+                      'Size',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: scheme.onSurface,
+                      ),
                     ),
                   ),
-                );
-              }),
+                  Expanded(
+                    child: SliderTheme(
+                      data: SliderThemeData(
+                        trackHeight: 4,
+                        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                        overlayShape: const RoundSliderOverlayShape(overlayRadius: 16),
+                        activeTrackColor: scheme.primary.withValues(alpha: 0.8),
+                        inactiveTrackColor: scheme.onSurface.withValues(alpha: 0.15),
+                        thumbColor: scheme.primary,
+                        overlayColor: scheme.primary.withValues(alpha: 0.2),
+                      ),
+                      child: Slider(
+                        value: size,
+                        min: 16,
+                        max: 96,
+                        divisions: 20,
+                        label: '${size.round()} px',
+                        onChanged: onSizeChanged,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                    child: Text(
+                      '${size.round()}px',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // Duration slider
+              Row(
+                children: [
+                  SizedBox(
+                    width: 72,
+                    child: Text(
+                      'Speed',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: SliderTheme(
+                      data: SliderThemeData(
+                        trackHeight: 4,
+                        thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 8),
+                        overlayShape: const RoundSliderOverlayShape(overlayRadius: 16),
+                        activeTrackColor: scheme.primary.withValues(alpha: 0.8),
+                        inactiveTrackColor: scheme.onSurface.withValues(alpha: 0.15),
+                        thumbColor: scheme.primary,
+                        overlayColor: scheme.primary.withValues(alpha: 0.2),
+                      ),
+                      child: Slider(
+                        value: durationScale,
+                        min: 0.25,
+                        max: 4.0,
+                        divisions: 15,
+                        label: '${durationScale.toStringAsFixed(2)}×',
+                        onChanged: onDurationChanged,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 40,
+                    child: Text(
+                      '${durationScale.toStringAsFixed(2)}×',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              // Color picker
+              Row(
+                children: [
+                  SizedBox(
+                    width: 72,
+                    child: Text(
+                      'Color',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  ..._Controls.colors.asMap().entries.map((e) {
+                    final selected = e.key == colorIndex;
+                    return GestureDetector(
+                      onTap: () => onColorChanged(e.key),
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 8, bottom: 4),
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: e.value,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: selected
+                                ? scheme.primary
+                                : scheme.onSurface.withValues(alpha: 0.2),
+                            width: selected ? 2.5 : 1,
+                          ),
+                          boxShadow: selected
+                              ? [
+                                  BoxShadow(
+                                    color: e.value.withValues(alpha: 0.6),
+                                    blurRadius: 8,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                              : null,
+                        ),
+                        child: selected
+                            ? Center(
+                                child: Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                              )
+                            : null,
+                      ),
+                    );
+                  }),
+                ],
+              ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

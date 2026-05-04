@@ -1,9 +1,12 @@
 # loading_ui
 
-> **Note**: This is an **AI-created version** based on the original work of [loading-ui.com](https://loading-ui.com).
+> **Note**: This is an **AI-created version** based on original works:
+> - Spinners, pulses, dots, bars, text & special loaders — ported from [loading-ui.com](https://loading-ui.com)
+> - Dot Matrix loaders (63 matrix + 1 icon) — ported from [dotmatrix](https://github.com/zzzzshawn/matrix)
 
-A collection of **36 beautiful, customisable loading animations** for Flutter,
-ported from the [loading-ui](https://github.com/anfeMurillo/Loading-UI-Flutter-Package) library.
+A collection of **100 loading animations** for Flutter (63 dot-matrix loaders + 36 classic loaders + 1 icon),
+ported from the [loading-ui](https://github.com/anfeMurillo/Loading-UI-Flutter-Package) and
+[dotmatrix](https://github.com/zzzzshawn/matrix) libraries.
 
 All widgets are:
 - **Accessible** — wrapped in `Semantics(liveRegion: true, label: 'Loading')`
@@ -141,6 +144,24 @@ InfinityLoader(size: 48, color: Colors.orange)
 | `WanderingEyesLoader` | Cartoon eyes that blink and look around |
 | `AnalyzingImageLoader` | AI image-scan effect with sweep line |
 
+### Dot Matrix (64)
+
+> Ported from [dotmatrix](https://github.com/zzzzshawn/matrix) — 5×5 and 7×7 grid animations.
+
+| Category | Count | Examples |
+|---|---|---|
+| **Square** (23) | `NeonDrift`, `PulseLadder`, `CoreSpiral`, `TwinOrbitMatrix`, `StrobeStack`, `GlyphPulse`, `PrismBloom`, `HelixGlow`, `InfinityRun`, `MobiusRun`, `BlockDrop`, etc. | 5×5 grid, `DotMatrixBase` widget |
+| **Circular** (20) | `HaloDrift`, `TriOrbit`, `PlasmaVeil`, `RadarArc`, `NovaWheel`, `PhaseOrb`, `LunarBreathe`, `ArcBeacon`, `TwinHelix`, `GlyphCycle`, etc. | 5×5 masked to circle |
+| **Triangle** (20) | `CoreSpokes`, `AltitudeWave`, `VertexChase`, `BrailleBeat`, `WingMetronome`, `CoronaTier`, `SerpentZip`, `PivotRay`, `TwinPerimeter`, etc. | 7×7 triangular mask, `TriangleMatrixBase` widget |
+| **Icon** (1) | `DotMatrixIcon` | Phase-reactive icon: idle/collapse/hoverRipple/loadingRipple |
+
+All matrix loaders share:
+- `speed` parameter (same 1× multiplier)
+- `color`, `size`, `dotSize` tuning
+- Optional `opacityBase`, `opacityMid`, `opacityPeak` overrides
+- `hoverAnimated` toggle
+- Reduced-motion support via `DotMatrixPhases`
+
 ---
 
 ## Common parameters
@@ -169,6 +190,19 @@ Wrapper loaders (`TextBlinkLoader`, `TextDotsLoader`) accept:
 |---|---|
 | `child` | Any widget (typically `Text`) |
 
+Matrix loaders additionally accept:
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `speed` | `double` | `1.0` | Speed multiplier (1× normal) |
+| `dotSize` | `double` | `4.0` | Each dot diameter in px |
+| `opacityBase` | `double?` | `null` | Minimum dot opacity override |
+| `opacityMid` | `double?` | `null` | Mid-tier opacity override |
+| `opacityPeak` | `double?` | `null` | Peak opacity override |
+| `hoverAnimated` | `bool` | `false` | React to mouse hover |
+| `cellPadding` | `double?` | `null` | Gap between dots |
+| `pattern` | `MatrixPattern` | `full` | Dot visibility pattern (diamond, outline, rose, cross, full, rings) |
+
 ---
 
 ## Accessibility
@@ -194,11 +228,11 @@ devices with "Reduce Motion" enabled.
 
 The `example/` directory contains an interactive showcase with:
 
-- Scrollable grid of all 36 widgets
+- Scrollable grid of all **100 widgets** (64 matrix + 36 classic)
 - Size slider (16–96 px)
 - Speed multiplier slider (0.25×–4×)
 - Colour picker with 8 swatches
-- Category filter chips
+- Category filter chips (`All`, `Spinners`, `Pulses`, `Dots`, `Bars`, `Text`, `Special`, `Matrix`)
 
 Run it with:
 
@@ -208,6 +242,17 @@ flutter run
 ```
 
 ---
+
+## Credits
+
+This package ports animations from two open-source libraries:
+
+| Source | Library | License |
+|---|---|---|
+| [loading-ui.com](https://loading-ui.com) | 36 classic loaders (spinners, pulses, dots, bars, text, special) | MIT |
+| [zzzzshawn/matrix](https://github.com/zzzzshawn/matrix) | 63 dot-matrix loaders + 1 icon | MIT |
+
+Both original projects are MIT-licensed. This Flutter port is also MIT.
 
 ## Contributing
 
