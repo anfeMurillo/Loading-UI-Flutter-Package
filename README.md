@@ -1,12 +1,19 @@
 # loading_ui
 
-> **Note**: This is an **AI-created version** based on original works:
-> - Spinners, pulses, dots, bars, text & special loaders — ported from [loading-ui.com](https://loading-ui.com)
-> - Dot Matrix loaders (63 matrix + 1 icon) — ported from [dotmatrix](https://github.com/zzzzshawn/matrix)
+> **Disclaimer**: This is an **AI-generated adaptation** created with the assistance of
+> artificial intelligence tools. It ports and reimplements loading animations from the
+> following original open-source projects:
+>
+> | Source | Original | Description |
+> |---|---|---|
+> | [loading-ui.com](https://loading-ui.com) | CSS/JS library | 36 classic loaders (spinners, pulses, dots, bars, text, special) |
+> | [zzzzshawn/matrix](https://github.com/zzzzshawn/matrix) | JavaScript library | 64 dot-matrix loaders (63 matrix + 1 icon) |
+>
+> All credit for the original designs and concepts goes to their respective authors.
+> This Flutter/Dart port is distributed under the MIT license, consistent with the
+> original projects.
 
-A collection of **100 loading animations** for Flutter (63 dot-matrix loaders + 36 classic loaders + 1 icon),
-ported from the [loading-ui](https://github.com/anfeMurillo/Loading-UI-Flutter-Package) and
-[dotmatrix](https://github.com/zzzzshawn/matrix) libraries.
+A collection of **100 loading animations** for Flutter (64 dot-matrix loaders + 36 classic loaders).
 
 All widgets are:
 - **Accessible** — wrapped in `Semantics(liveRegion: true, label: 'Loading')`

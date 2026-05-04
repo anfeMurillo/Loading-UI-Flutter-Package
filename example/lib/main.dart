@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:loading_ui/loading_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -56,6 +57,8 @@ class _Controls {
   ];
 
   Color get color => colors[colorIndex];
+
+  double get speed => 1.0 / durationScale;
 
   Duration scale(Duration base) =>
       Duration(microseconds: (base.inMicroseconds * durationScale).round());
@@ -314,7 +317,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => NeonDriftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -324,7 +327,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PulseLadderLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -334,7 +337,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CoreSpiralLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -344,7 +347,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PrismSweepLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -354,7 +357,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => FluxColumnsLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -364,7 +367,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CrtGlideLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -374,7 +377,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => EchoRingLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -384,7 +387,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => OriginWaveLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -394,7 +397,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CoreRotorLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -404,7 +407,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => SoundBarsLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -414,7 +417,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CoreSpokesLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -424,7 +427,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => AltitudeWaveLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -434,7 +437,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CornerBounceLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -444,7 +447,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => RowSweepLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -454,7 +457,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ColumnRakeLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -465,7 +468,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => TwinOrbitMatrixLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -475,7 +478,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => StrobeStackLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -485,7 +488,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => GlyphPulseLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -495,7 +498,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PrismBloomLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -505,7 +508,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HelixGlowLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -515,7 +518,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HelixCoreLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -525,7 +528,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HalfHelixLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -535,7 +538,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => InfinityRunLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -545,7 +548,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => MobiusRunLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -555,7 +558,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => SnakeWaveLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -565,7 +568,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ColWaveLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -575,7 +578,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ConcentricRingMatrixLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -586,7 +589,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HaloDriftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -596,7 +599,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => TriOrbitLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -606,7 +609,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PlasmaVeilLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -616,7 +619,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => RadarArcLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -626,7 +629,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => NovaWheelLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -636,7 +639,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PhaseOrbLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -646,7 +649,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => GateShiftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -656,7 +659,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HeartPulseLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -666,7 +669,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => StarCompassLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -676,7 +679,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => BinaryBloomLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -687,7 +690,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => VertexChaseLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -697,7 +700,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => BrailleBeatLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -707,7 +710,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ObliqueWeaveLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -718,7 +721,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => BlockDropLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -728,7 +731,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => LunarBreatheLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -738,7 +741,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ArcBeaconLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -748,7 +751,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => TwinHelixLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -758,7 +761,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => RungShiftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -768,7 +771,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => GlyphClusterLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -778,7 +781,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => RailScanLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -788,7 +791,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CheckerShiftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -798,7 +801,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PulsePairLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -808,7 +811,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => OrbitCellLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -818,7 +821,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => GlyphCycleLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -828,7 +831,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => WingMetronomeLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -838,7 +841,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => CoronaTierLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -848,7 +851,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => ShelfDescentLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -858,7 +861,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => SkewDriftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -869,7 +872,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => SerpentZipLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -879,7 +882,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PillarSweepLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -889,7 +892,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => TripodHandoffLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -899,7 +902,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => UpdraftLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -909,7 +912,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => InfinityTraceLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -919,7 +922,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => HollowShellLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -929,7 +932,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => PivotRayLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -939,7 +942,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => TwinPerimeterLoader(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
       animated: true,
     ),
   ),
@@ -950,7 +953,7 @@ List<_LoderEntry> _catalogue(_Controls c) => [
     build: (_) => DotMatrixIcon(
       size: c.size,
       color: c.color,
-      speed: c.durationScale,
+      speed: c.speed,
     ),
   ),
 ];
@@ -998,21 +1001,30 @@ class _ShowcasePageState extends State<ShowcasePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Column(
-          children: [
-            Text('loading_ui'),
-            Text(
-              'AI-created version from loading-ui.com',
-              style: TextStyle(fontSize: 10, fontWeight: FontWeight.normal),
-            ),
-          ],
+        title: Text(
+          'loading_ui',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 18,
+            letterSpacing: -0.5,
+            color: scheme.primary,
+          ),
         ),
         centerTitle: true,
         backgroundColor: scheme.surfaceContainerHighest,
         actions: [
           IconButton(
-            icon: const Icon(Icons.code),
-            tooltip: 'View on GitHub',
+            icon: SvgPicture.asset(
+              'assets/github.svg',
+              package: 'loading_ui',
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                scheme.onSurface,
+                BlendMode.srcIn,
+              ),
+            ),
+            tooltip: 'Ver en GitHub',
             onPressed: () => launchUrl(
               Uri.parse(
                 'https://github.com/anfeMurillo/Loading-UI-Flutter-Package.git',

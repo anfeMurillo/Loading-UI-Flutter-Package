@@ -13,6 +13,7 @@ dependencies:
   loading_ui:
     path: ../
   url_launcher: ^6.3.1
+  flutter_svg: ^2.0.16
 
 dev_dependencies:
   flutter_test:
